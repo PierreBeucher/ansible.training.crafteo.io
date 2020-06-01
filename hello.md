@@ -1,4 +1,4 @@
-# Ansible: a simple command
+# Ansible: example playbook
 
 Let's install Ansible and run a simple command on our targets.
 
