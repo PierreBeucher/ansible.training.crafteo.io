@@ -7,12 +7,12 @@ Ansible uses Jinja2 variables to define dynamic expressions using variables. Syn
 Update `playbook.yml` to define variables:
 
 ```
-index_content: Hello from playbook!
-www_data_owner: www-data
-www_data_group: www-data
+apache_hello_message: Hello from playbook!
+apache_data_owner: www-data
+apache_data_group: www-data
 ```
 
- And update tasks so that `index.html` content, owner and group are defined using variables. Run the updated playbook.
+And update tasks so that `index.html` content, owner and group are defined using variables. Run the updated playbook.
 
 ## Use variable with templates
 
