@@ -29,13 +29,19 @@ Let's run our first Ansible playbook. Clone this repository:
 
 ```
 git clone https://github.com/PierreBeucher/workshop-ansible-playbook.git
-cd workshop-ansible-playbook
 ```
 
-And run Ansible playbook command:
+Before running the playbook, we need to tell Ansible on which nodes it must connect and take actions. This is done via the **Ansible inventory** in file `inventories/dev/hosts`.
 
-```
-ansible-playbook -i inventories/dev playbook.yml
-```
+- Update the inventory host file to specify the address of your node
+- Run Ansible playbook command:
+    ```
+    cd workshop-ansible-playbook  
+    ansible-playbook -i inventories/dev playbook.yml
+    ```
 
-This ran all the tasks presents in `playbook.yml` on targets hosts defined in `inventories/dev/hosts`. Check out the content of these files and try to understand what happened.
+This ran all the tasks presents in `playbook.yml` on targets hosts defined in inventory. Check out the content of these files and try to understand what happened.
+
+---
+
+Bonus exercise: our epository used a login/password in host file to connect to our nodes. Update the inventory to use a local SSH key instead.

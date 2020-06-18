@@ -28,7 +28,6 @@ Update our previous `apache` role:
 
 - Only include the tasks required to copy our static website file
 - Delete old tasks used to install Apache as they are now managed by our Galaxy Apache role
-- Renamed role `static-web` and use it in our playbook alongside the `apache` role
 - Change the variable `apache_hello_message` to `Hello from static web [dev|prod]`
 
 Run your playbook and check everything is working.
