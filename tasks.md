@@ -28,9 +28,9 @@ Try running the playbook a second time and see what happens.
 
 ## Manage file content
 
-Let's override the default `index.html` by instructing Ansible to manage `/var/www/html/index.html`, the default Apache2 file.
+Let's override the default `index.html` by instructing Ansible to manage `/var/www/html/index.html`, the default Apache2 file. We will copy the `index.html` file already existing in our repository on the target node such as:
 
-- Set `index.html` content as `<html>Hello Ansible!</html>`
+- Local `index.html` file should be copied at `/var/www/html/index.html`
 - Set `index.html` permission to `0600`
 - Set `index.html` owner and group to `www-data` and `www-data`
 

@@ -1,32 +1,31 @@
 # Ansible roles - building a small Apache role
 
-Let's create an Ansible role to deploy Apache with a single static page.
+Lets' use an Ansible role to deploy Apache with a single static page. For these exercices, checkout the `role` branch from our repository:
 
-## Refactor playbook with role structure
+```
+# stash our current changes
+# changes may be retrieve using git stash pop
+git stash
 
-Explore the files unders `roles/apache` and:
+# checkout role branch
+git checkout role 
+```
 
-- Copy existing tasks from your playbook into the role's tasks file
-- Copy existing variables from your playbook into the role's default variables file
-- Copy existing templates into the templates directory
-- Update the playbook to use the role instead of tasks. Example syntax:
-  ```
-      - hosts: all
-        roles:
-        - name: rolename
-  ```
-- Ensure to have as default variable:
-  ```
-  apache_hello_message: Hello from default vars
-  ```
+## Explore role structure
 
-*Note: keep in mind [Ansible variable precedence](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable), a role default variable will have lower priority than an inventory `group_vars/all` variable.*
+`playbook.yml` now simply reference our role by name. Explore the files unders `roles/apache` and:
 
-Run your playbook to try out your new role!
+- Find where the role's tasks are defined
+- Find where the role's defaut variable are defined
+- Find in Ansible documentation's the recommended role layout and goal of each folder's in a role
+
+Try to run the playbook with our defined role.
+
+- What value of `apache_hello_message` was used?
 
 ## Define multiple inventories and configuration
 
-Now that our role is ready, we want to define multiple environments:
+We now want to define multiple environments, each Ansible inventory representing a different environment:
 
 - `dev` environment showing message `Hello from dev environment!`
 - `prod` environment showing message `Hello from production environment!`
@@ -38,5 +37,8 @@ Using Ansible inventories:
 - Configure your inventories to ensure `index.html` shows message:
   - `Hello from Dev!` with `dev` inventory
   - `Hello from Prod!` with `prod` inventory
+- Permissions of the `index.html`
+  - In Dev, we want to have permissions `0774` on `index.html`
+  - In Prod, we want to keep role's default permissions for `index.html`
 
-Run your playbook. Each environment should show it's own variable by overriding the default variables in role.
+Run your playbook and check changes were applied.
