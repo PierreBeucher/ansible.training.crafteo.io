@@ -27,8 +27,9 @@ Try to run the playbook with our defined role.
 
 We now want to define multiple environments, each Ansible inventory representing a different environment:
 
-- `dev` environment showing message `Hello from dev environment!`
-- `prod` environment showing message `Hello from production environment!`
+- `dev` environment showing message `Hello from Dev!`
+- `prod` environment showing message `Hello from Prod!`
+- Some overrides in Prod environments
 
 Using Ansible inventories:
 
@@ -40,5 +41,6 @@ Using Ansible inventories:
 - Permissions of the `index.html`
   - In Dev, we want to have permissions `0774` on `index.html`
   - In Prod, we want to keep role's default permissions for `index.html`
+  - _Note: this may require some changes in role_
 
 Run your playbook and check changes were applied.
