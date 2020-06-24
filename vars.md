@@ -1,6 +1,6 @@
 # Ansible: variables and templates
 
-Ansible uses Jinja2 variables to define dynamic expressions using variables. Syntax is `{{ '{{' }} variable_name {{ '}}' }}`.
+Ansible can define variables in playbooks and various places. These variables can be used in tasks and templates using Jinja2 templating to define dynamic expressions. Syntax is `{{ '{{' }} variable_name }}`.
 
 ## Use variable in playbook
 
