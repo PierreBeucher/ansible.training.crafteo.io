@@ -11,17 +11,17 @@ git stash
 git checkout role 
 ```
 
+This branch has a very simple playbook referencing the `apache` role. The role can be found under `roles/apache` and define tasks to install Apache with a simple `index.html` template with a few variables. 
+
 ## Explore role structure
 
-`playbook.yml` now simply reference our role by name. Explore the files unders `roles/apache` and:
+Explore the files unders `roles/apache` and:
 
 - Find where the role's tasks are defined
-- Find where the role's defaut variable are defined
+- Find where the role's defaut variables are defined
 - Find in Ansible documentation's the recommended role layout and goal of each folder's in a role
 
 Try to run the playbook with our defined role.
-
-- What value of `apache_hello_message` was used?
 
 ## Define multiple inventories and configuration
 
