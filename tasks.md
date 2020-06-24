@@ -16,7 +16,7 @@ Update `playbook.yml` file to install `apache2` package ([Apache HTTP server](ht
 
 - Install `apache2` package
 - Ensure cache is updated when using the module (equivalent of running `apt-get update`)
-- **Use privilage escalation** when running the module (equivalent to using `sudo apt-get` command)
+- **Use privilege escalation** when running the module (equivalent to using `sudo` or running command as `root`)
   - Search for this in Ansible doc ;)
 
 Run your playbook and, on success, ensure Apache has been installed. Apache service should be running and serving the default page:
