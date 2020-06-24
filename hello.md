@@ -40,7 +40,10 @@ Before running the playbook, we need to tell Ansible on which nodes it must conn
     ansible-playbook -i inventories/dev playbook.yml
     ```
 
-This ran all the tasks presents in `playbook.yml` on targets hosts defined in inventory. Check out the content of these files and try to understand what happened.
+This ran all the tasks presents in `playbook.yml` on targets hosts defined in inventory
+
+- Check `playbook.yml` to see what tasks were performed
+- Connect with SSH on nodes to ensure tasks were performed successfully
 
 ---
 
