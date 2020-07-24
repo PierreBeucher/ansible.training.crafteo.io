@@ -1,16 +1,16 @@
 # Use roles with Ansible Galaxy
 
-[Ansible Galaxy](https://galaxy.ansible.com) provides roles maintained by community which can easily be installed and used in playbooks.
+[Ansible Galaxy](https://galaxy.ansible.com) provides roles maintained by the Ansible community and open-sourced. They can easily be installed and used in playbooks.
 
 ## Install role globally
 
-Writing and maintaining an Ansible role may be complex. Instead of re-writing code that probably already exists somewhere, let's use a role available in the community to manage our Apache server:
+Let's use an Apache role from Ansible Galaxy to install and configure our Apache server:
 
 - Search for the Apache role in Ansible Galaxy maintained by `geerlingguy`
 - Install the role on your machine
 - Update your `playbook.yml` to use this role instead of our own `apache` role
 
-Run your playbook and check everything is working. You should see a few more tasks being run - do not hesitate to visit the role's source code to see how it's done! 
+Run your playbook and check everything is working. You should see a few more tasks being run - do not hesitate to visit the role's source code to see how it's done!
 
 ## Override role's default configuration
 

@@ -31,20 +31,24 @@ Let's run our first Ansible playbook. Clone this repository:
 git clone https://github.com/PierreBeucher/workshop-ansible-playbook.git
 ```
 
-Before running the playbook, we need to tell Ansible on which nodes it must connect and take actions. This is done via the **Ansible inventory** in file `inventories/dev/hosts`.
+Before running the playbook, we need to tell Ansible on which nodes it must connect and take actions. This is done via the **Ansible hosts** in file. We'll use the `hosts` file in `inventories/dev/hosts`.
 
-- Update the inventory host file to specify the address of your node
+_Note: an Inventory is a component allowing Ansible to configure hosts, we'll come back to that later._
+
+- Update the hosts file to specify the address of your node
 - Run Ansible playbook command:
     ```
-    cd workshop-ansible-playbook  
+    cd workshop-ansible-playbook   
     ansible-playbook -i inventories/dev playbook.yml
     ```
 
-This ran all the tasks presents in `playbook.yml` on targets hosts defined in inventory
+This ran all the tasks presents in `playbook.yml` on targets defined in our hosts file:
+- `ansible-playbook` is a command line running Ansible Playbooks
+- `-i inventories/dev` tells Ansible to use inventory `inventories/dev` and look for `hosts` file in this directory
+- `playbook.yml` is our Playbook. It contains the tasks we want to run.
 
-- Check `playbook.yml` to see what tasks were performed
-- Connect with SSH on nodes to ensure tasks were performed successfully
+Explore the content of `playbook.yml` to understand what happened.
 
 ---
 
-Bonus exercise: our epository used a login/password in host file to connect to our nodes. Update the inventory to use a local SSH key instead.
+Bonus exercise: our repository used a login/password in host file to connect to our nodes. Update the inventory to use a local SSH key instead.

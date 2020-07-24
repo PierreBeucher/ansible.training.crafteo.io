@@ -22,13 +22,15 @@ Update `playbook.yml` file to install `apache2` package ([Apache HTTP server](ht
 Run your playbook and, on success, ensure Apache has been installed. Apache service should be running and serving the default page:
 
 - Running `sudo systemctl status apache2` on the server should show the service status
-- Try accessing your server via web browser at it's address such as `http://your-name.training.crafteo.io`, the default Apache paghe should be shown
+- Try accessing your server via web browser at it's address such as `http://your-name.training.crafteo.io`, the default Apache page should be shown
 
 Try running the playbook a second time and see what happens.
 
 ## Manage file content
 
-Let's override the default `index.html` by instructing Ansible to manage `/var/www/html/index.html`, the default Apache2 file. We will copy the `index.html` file already existing in our repository on the target node such as:
+Let's override the default `index.html` of our Apache server by instructing Ansible to manage `/var/www/html/index.html`, the default Apache index file.
+
+Configure your Playbook to copy the `index.html` file already existing in our repository on the target node such as:
 
 - Local `index.html` file should be copied at `/var/www/html/index.html`
 - Set `index.html` permission to `0600`
@@ -41,11 +43,26 @@ Run the playbook to apply changes and check on the machine changes were applied 
 
 ## Run a command
 
-Ansible can also run Shell commands on server. **This should be avoided when possible** if a moduleexists for the task you want to perform. (for instance, using `apt` module instead of running `apt install` commands)
-
-Use an appropriate module to run the following command:
+Ansible can also run commands on targets. Use an appropriate module to run the following command:
 
 ```
 ls -al /var/www/html
+```
+
+**Important note: using this method should be avoided when possible**. Ansible modules running commands **are not idempotent most of the time**, you are responsible to ensure the command's idempotency.
+
+If possible, use an Ansible module instead of running a command. For example, to install `apache2`, you can run command:
+
+```
+sudo apt-get install apache2
+```
+
+However, the `apt` Ansible module exists for managing packages, the prefered way is then something like:
+
+```
+- name: install Apache2
+  apt:
+    name: apache2
+    state: present
 ```
 
