@@ -31,9 +31,9 @@ Let's run our first Ansible playbook. Clone this repository:
 git clone https://github.com/PierreBeucher/workshop-ansible-playbook.git
 ```
 
-Before running the playbook, we need to tell Ansible on which nodes it must connect and take actions. This is done via the **Ansible hosts** in file. We'll use the `hosts` file in `inventories/dev/hosts`.
+Before running the playbook, we need to tell Ansible on which nodes it must connect to and take actions. This is done via the **Ansible `hosts` file**. We'll use the `hosts` file in inventory `inventories/dev/hosts`.
 
-_Note: an Inventory is a component allowing Ansible to configure hosts, we'll come back to that later._
+_Note: an inventory is a component allowing Ansible to configure hosts, we'll come back to that later._
 
 - Update the hosts file to specify the address of your node
 - Run Ansible playbook command:
@@ -42,7 +42,7 @@ _Note: an Inventory is a component allowing Ansible to configure hosts, we'll co
     ansible-playbook -i inventories/dev playbook.yml
     ```
 
-This ran all the tasks presents in `playbook.yml` on targets defined in our hosts file:
+This ran all the tasks defined in `playbook.yml` on nodes defined in our `hosts` file:
 - `ansible-playbook` is a command line running Ansible Playbooks
 - `-i inventories/dev` tells Ansible to use inventory `inventories/dev` and look for `hosts` file in this directory
 - `playbook.yml` is our Playbook. It contains the tasks we want to run.
